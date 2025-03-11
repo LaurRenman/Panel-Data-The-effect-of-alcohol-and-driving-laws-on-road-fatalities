@@ -39,7 +39,8 @@ L’analyse repose sur des modèles économétriques avec différentes spécific
 ## Structure du Projet  
 Le dépôt GitHub contient :  
 - `README.md` : Documentation du projet.  
-
+- `Code.R` : Code du projet.
+- `Data` : Données de Panel utilisées.
 ---
 
 ## Contributions  
