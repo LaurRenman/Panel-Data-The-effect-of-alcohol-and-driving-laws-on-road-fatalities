@@ -1,8 +1,15 @@
-# Effet des lois sur l’alcool et la conduite sur la mortalité
-routière – Données de Panel  
+# Effet des lois sur l’alcool et la conduite sur la mortalité routière – Données de Panel  
+
+---
 
 ## Question de recherche :  
 Les politiques publiques sur l’alcool réduisent-elles significativement le nombre d’accidents mortels?  
+
+---
+
+## Description du Projet
+
+Le projet examine l'importance de la taxe sur la bière et d'autres lois étatiques sur les taux annuels de mortalité par accident de la route entre 1982 et 1988. Les effets des conditions économiques prédominantes et des facteurs démographiques sont également pris en compte dans les modèles de régression de données de panel afin de comprendre les effets réels
 
 ---
 
