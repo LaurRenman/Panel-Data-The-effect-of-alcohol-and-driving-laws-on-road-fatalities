@@ -96,3 +96,22 @@ stargazer(Model_OLS, Model_Fixe, Model_Aleatoire,
               round(sigma2_Fixe, 3), 
               round(sigma2_Aleatoire, 3))
           ))
+
+# Graphique 1 : Évolution temporelle du taux de mortalité et de la taxe sur la bière
+ggplot(df, aes(x = year, y = fatal_rate, group = state, color = state)) +
+  geom_line(alpha = 0.5) +
+  stat_summary(aes(group = 1), fun = mean, geom = "line", size = 1.5, color = "red") +
+  geom_text_repel(
+    data = subset(df, year == 1988),
+    aes(label = toupper(state)), 
+    size = 3,
+    direction = "y",
+    segment.color = NA
+  ) +
+  labs(
+    title = "Évolution du Taux de Mortalité Routière (1982-1988)",
+    x = "Année",
+    y = "Taux de mortalité (pour 10 000 habitants)"
+  ) +
+  scale_color_discrete(name = "État") +  
+  theme_minimal()
