@@ -115,3 +115,59 @@ ggplot(df, aes(x = year, y = fatal_rate, group = state, color = state)) +
   ) +
   scale_color_discrete(name = "État") +  
   theme_minimal()
+
+# Graphique 2 : Barres pour l'Âge Légal 
+df$age_group <- cut(df$drinkage,
+                    breaks = c(18, 19, 20, 21, 22),
+                    labels = c("[18,19)", "[19,20)", "[20,21)", "[21,22]"),
+                    right = FALSE)
+
+# Agréger les données par année et groupe d'âge
+drinkage_summary <- aggregate(
+  list(n_states = df$state),
+  by = list(year = df$year, age_group = df$age_group),
+  FUN = function(x) length(unique(x))
+)
+
+# Définir les couleurs pour chaque groupe d'âge 
+df$age_group <- cut(df$drinkage,
+                    breaks = c(18, 19, 20, 21, 22),
+                    labels = c("[18,19)", "[19,20)", "[20,21)", "[21,22]"),
+                    right = FALSE)
+
+# Agréger les données
+drinkage_summary <- aggregate(
+  list(n_states = df$state),
+  by = list(year = df$year, age_group = df$age_group),
+  FUN = function(x) length(unique(x))
+)
+
+# Définir les couleurs exactes comme dans l'image
+age_colors <- c(
+  "[18,19)" = "#FF6B6B",    
+  "[19,20)" = "#4ECDC4",    
+  "[20,21)" = "#45B7D1",   
+  "[21,22]" = "#FFD700"    
+)
+
+# Graphique final
+ggplot(drinkage_summary, aes(x = year, y = n_states, fill = age_group)) +
+  geom_bar(
+    stat = "identity",
+    position = position_dodge(width = 0.8),
+    width = 0.7,
+    color = "black"
+  ) +
+  labs(
+    title = "Minimum Legal Drinking Age",
+    x = "Year",
+    y = "# of States",
+    fill = "Age Group"
+  ) +
+  scale_fill_manual(values = age_colors) + 
+  scale_y_continuous(limits = c(0, 50), breaks = seq(0, 50, 10)) +
+  theme_minimal() +
+  theme(
+    panel.grid.major = element_blank(),
+    axis.line = element_line(color = "black")
+  )
