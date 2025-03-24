@@ -171,3 +171,11 @@ ggplot(drinkage_summary, aes(x = year, y = n_states, fill = age_group)) +
     panel.grid.major = element_blank(),
     axis.line = element_line(color = "black")
   )
+
+# Graphique 3 : Relation entre taxe sur la bière et mortalité
+ggplot(df, aes(x = beertax, y = fatal_rate)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm", color = "blue") +
+  labs(title = "Taxe sur la Bière vs. Mortalité Routière (pour 10 000 habitants)", 
+       x = "Taxe sur la bière (USD)", y = "Taux de mortalité") +
+  theme_minimal()
