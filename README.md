@@ -42,7 +42,7 @@ Le dépôt GitHub contient :
 - `Code.R` : Code du projet.
 - `Data` : Données de Panel utilisées.
 - `Dossier.pdf` : Interprétation et analyse
-- `Support` :
+- `Support` : Les graphiques utilisés
 ---
 
 ## Contributions  
