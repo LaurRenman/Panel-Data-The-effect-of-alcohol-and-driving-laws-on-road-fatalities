@@ -41,7 +41,8 @@ Le dépôt GitHub contient :
 - `README.md` : Documentation du projet.  
 - `Code.R` : Code du projet.
 - `Data` : Données de Panel utilisées.
-- `Dossier` : Interprétation et analyse
+- `Dossier.pdf` : Interprétation et analyse
+- `Support` :
 ---
 
 ## Contributions  
